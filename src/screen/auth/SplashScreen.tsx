@@ -21,7 +21,7 @@ const SplashScreen: React.FC<Props> = ({ navigation }) => {
     };
 
     // Optional: add a small delay for splash
-    setTimeout(checkAuth, 3000);
+    setTimeout(checkAuth, 1500);
   }, [navigation]);
 
   return (

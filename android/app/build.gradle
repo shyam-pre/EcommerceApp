@@ -58,7 +58,14 @@ react {
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
 def enableProguardInReleaseBuilds = false
+project.ext.react = [
+     enableHermes: true,  // Make sure this is true
+    hermesFlags: "-O",
+    bundleInDebug: false, // Disable for faster debug builds
+    bundleInRelease: true,
+    codegenDisabledList: ["react-native-vector-icons"]
 
+]
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
  *
@@ -107,6 +114,12 @@ android {
     }
 }
 
+
+/**
+ * ✅ Important: Add hermesEnabled variable
+ */
+def hermesEnabled = project.ext.react.get("enableHermes")
+
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
@@ -117,3 +130,5 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+apply from:"../../node_modules/react-native-vector-icons/fonts.gradle"

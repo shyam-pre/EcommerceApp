@@ -17,15 +17,18 @@
 
 import React from 'react'
 import RootNavigator from "./src/navigation/RootNavigator";
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import { store } from './src/redux/store';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {ThemeProvider} from './src/context/ThemeContext'
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex:1}} edges={['top', 'bottom','left','right']}>
+    <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
       <Provider store={store}>
-      <RootNavigator/>
+      <ThemeProvider>
+      <RootNavigator />
+      </ThemeProvider>
       </Provider>
     </SafeAreaView>
   )

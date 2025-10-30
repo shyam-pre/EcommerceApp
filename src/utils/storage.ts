@@ -5,7 +5,7 @@ export const storage = new MMKV();
 export const keys = {
   TOKEN: 'token',
   USER_ID: 'user_id',
-  Cart_Data : 'cart_data'
+  Cart_Data: 'cart_data',
 };
 export const saveData = (key: string, value: any) => {
   const data =

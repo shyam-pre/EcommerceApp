@@ -22,9 +22,9 @@ const HomeStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
       <Stack.Screen name="HomeMain" component={HomeScreen} options={{ title: 'Home' }} />
-      {/* <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Details' }}  />
+      <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Details' }}  />
       <Stack.Screen name='NoteScreen' component={NoteScreen} options={{title:'Note'}} />
-      <Stack.Screen name='CartScreen' component={CartScreen} options={{title:'Cart'}} /> */}
+      <Stack.Screen name='CartScreen' component={CartScreen} options={{title:'Cart'}} />
     </Stack.Navigator>
   );
 };

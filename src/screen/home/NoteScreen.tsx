@@ -1,29 +1,27 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { View, Text, TouchableOpacity, TextInput, FlatList, Keyboard } from 'react-native'
 import { moderateScale, scale } from 'react-native-size-matters'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addNote, noteSelector, Note } from '../../redux/slices/NoteSlice'
+import { UserContext } from '../../context/UserContext'
 
 const NoteScreen = () => {
     const [title, setTitle] = useState<string>('')
     const [decs, setDecs] = useState<string>('')
     const dispatch = useAppDispatch()
     const notes = useAppSelector(noteSelector)
-    console.log('notsssssssssss', notes)
-
+    const { selectedUser } = useContext(UserContext)
     const handleAddNote = () => {
         if (!title.trim() || !decs.trim()) {
             return
         }
-
         dispatch(addNote({ title, decs }))
         setTitle(''),
             setDecs('')
-
         // disable textInput 
         Keyboard.dismiss()
     }
-    
+
     return (
         <View style={{ flex: 1 }}>
             <TouchableOpacity >
@@ -47,6 +45,10 @@ const NoteScreen = () => {
                     </View>
                 )
             }} />
+
+            <Text style={{ fontSize: 15, color: '#000', fontWeight: '600', borderWidth: 1, padding: scale(20), margin: moderateScale(5) }}
+            >{selectedUser?.firstName}</Text>
+
         </View>
     )
 }

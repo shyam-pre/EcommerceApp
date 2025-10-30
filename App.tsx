@@ -21,13 +21,15 @@ import { Provider } from 'react-redux'
 import { store } from './src/redux/store';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {ThemeProvider} from './src/context/ThemeContext'
-
+import { HomUserProvider } from './src/context/UserContext';
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
       <Provider store={store}>
       <ThemeProvider>
+        <HomUserProvider>
       <RootNavigator />
+        </HomUserProvider>
       </ThemeProvider>
       </Provider>
     </SafeAreaView>

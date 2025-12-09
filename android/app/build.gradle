@@ -1,7 +1,8 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
-
+// fisebase dependencies    
+apply plugin:"com.google.gms.google-services"
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -129,6 +130,15 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // these firebase dependencies
+    implementation platform('com.google.firebase:firebase-bom:34.5.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+   // current location permission    
+   implementation "com.google.android.gms:play-services-location:21.0.1"
+   implementation "com.google.android.gms:play-services-maps:18.2.0"
+   
 }
 
 apply from:"../../node_modules/react-native-vector-icons/fonts.gradle"

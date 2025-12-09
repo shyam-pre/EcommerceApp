@@ -18,19 +18,22 @@
 import React from 'react'
 import RootNavigator from "./src/navigation/RootNavigator";
 import { Provider } from 'react-redux'
-import { store } from './src/redux/store';
+import { persistor, store } from './src/redux/store';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {ThemeProvider} from './src/context/ThemeContext'
+import { ThemeProvider } from './src/context/ThemeContext'
 import { HomUserProvider } from './src/context/UserContext';
+import { PersistGate } from 'redux-persist/integration/react';
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom', 'left', 'right']}>
       <Provider store={store}>
-      <ThemeProvider>
-        <HomUserProvider>
-      <RootNavigator />
-        </HomUserProvider>
-      </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider>
+            <HomUserProvider>
+              <RootNavigator />
+            </HomUserProvider>
+          </ThemeProvider>
+        </PersistGate>
       </Provider>
     </SafeAreaView>
   )

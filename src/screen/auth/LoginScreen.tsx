@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
-import { View, TextInput, Button, Alert } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, TextInput, Button, Alert, BackHandler } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { AuthStackParamList } from '../../../src/navigation/AuthNavigator';
 import { keys, saveData } from '../../../src/utils/storage';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { scale, ModerateScale, verticalScale, moderateScale } from 'react-native-size-matters'
+import { useGetCartsQuery } from '../../api/cartApi';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../redux/store';
+import { setCarts } from '../../redux/slices/MainCartSlice';
 type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>
 
 const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
+    const { data, error, isLoading } = useGetCartsQuery()
+    console.log('dataddddddddd', data);
+    
+const dispatch = useDispatch<AppDispatch>()
+  const handleLogin = async() => {
     // 🔹 API call logic
     // assume login success and token received: 
+
     const token = 'mock_token_12345';
     // saveToken(token);
     saveData(keys.TOKEN, token);
@@ -27,10 +35,29 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
       return
     }
     // navigation.replace('Main'); // go to Drawer/Home
-    navigation.getParent()?.navigate('Main')
+    // saveData(keys.Cart_Data, data?.carts)
+    
+
+    // if (data?.carts) {
+    //   dispatch(setCarts(data.carts)); // ✅ store data in Redux
+    // }
+            // dispatch(addItemToCart(item))
+
+    navigation.getParent()?.navigate('Main');
   };
 
+  useEffect(() => {
+    const backAction = () => {
+      BackHandler.exitApp();
+      return true
+    };
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
 
+    return () => backHandler.remove()
+  }, []);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', padding: moderateScale(2) }}>

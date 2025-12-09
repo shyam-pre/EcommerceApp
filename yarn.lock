@@ -7334,10 +7334,10 @@ react-native-is-edge-to-edge@^1.2.1:
   resolved "https://registry.npmjs.org/react-native-is-edge-to-edge/-/react-native-is-edge-to-edge-1.2.1.tgz"
   integrity sha512-FLbPWl/MyYQWz+KwqOZsSyj2JmLKglHatd3xLZWskXOpRaio4LfEDEz8E/A6uD8QoTHW6Aobw1jbEwK7KMgR7Q==
 
-react-native-maps@^1.26.17:
-  version "1.26.17"
-  resolved "https://registry.npmjs.org/react-native-maps/-/react-native-maps-1.26.17.tgz"
-  integrity sha512-MCWUYrhXUyeZ6LpKvyGyvcB91MSPMCy3KjGLdgcUuMqd6sP4haUppwdw0adRpKBrRcy4oFWZiBvT/oirJ9HvCA==
+react-native-maps@^1.26.20:
+  version "1.26.20"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-1.26.20.tgz#697686c190679d58195941a11645c90aa1739534"
+  integrity sha512-kWibDz6wLLQ0685gOEFz5jdzm4miD7PMeVdtZV7ilgftDcusC2iy7SueBJpHF0LKCoOSa1BEUiKqpx1dBMSNpA==
   dependencies:
     "@types/geojson" "^7946.0.13"
 
@@ -7345,6 +7345,11 @@ react-native-mmkv@^3.3.3:
   version "3.3.3"
   resolved "https://registry.npmjs.org/react-native-mmkv/-/react-native-mmkv-3.3.3.tgz"
   integrity sha512-GMsfOmNzx0p5+CtrCFRVtpOOMYNJXuksBVARSQrCFaZwjUyHJdQzcN900GGaFFNTxw2fs8s5Xje//RDKj9+PZA==
+
+react-native-permissions@^5.4.4:
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-5.4.4.tgz#8a63b001fc0f9e88426c36b21a6fe379c4533b04"
+  integrity sha512-WB5lRCBGXETfuaUhem2vgOceb9+URCeyfKpLGFSwoOffLuyJCA6+NTR3l1KLkrK4Ykxsig37z16/shUVufmt7A==
 
 react-native-razorpay@^2.3.0:
   version "2.3.0"

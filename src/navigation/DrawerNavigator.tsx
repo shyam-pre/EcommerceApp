@@ -35,11 +35,17 @@ import ProfileNavigator from './ProfileNavigator';
 import ReviewScreen from './ReviewScreen';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
+import animationScreen1 from '../screen/animations/animationScreen1'
+import AnimatedStyleProp from '../screen/animations/AnimatedStyleProp';
+import ProductScreen from '../screen/animations/ProductScreen';
 
 export type DrawerParamList = {
   HomeDrawer: undefined;
   ProfileDrawer: undefined;
   ReviewScreen: undefined;
+  animationScreen1: undefined;
+  AnimatedStyleProp: undefined;
+  ProductScreen: undefined;
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -98,6 +104,10 @@ const DrawerNavigator = () => {
         component={ReviewScreen}
         options={{ title: 'Review' }}
       />
+
+      <Drawer.Screen name='AnimatedStyleProp' component={AnimatedStyleProp} />
+      <Drawer.Screen name='animationScreen1' component={animationScreen1} />
+      <Drawer.Screen name='ProductScreen' component={ProductScreen} />
     </Drawer.Navigator>
   );
 };

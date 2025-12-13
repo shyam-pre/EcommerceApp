@@ -60,12 +60,11 @@ react {
  */
 def enableProguardInReleaseBuilds = false
 project.ext.react = [
-     enableHermes: true,  // Make sure this is true
+     enableHermes: false,  // Make sure this is true
     hermesFlags: "-O",
     bundleInDebug: false, // Disable for faster debug builds
     bundleInRelease: true,
     codegenDisabledList: ["react-native-vector-icons"]
-
 ]
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
